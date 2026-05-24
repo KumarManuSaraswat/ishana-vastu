@@ -25,10 +25,10 @@ function Footer() {
 
         <div className="footer-links">
           <p className="footer-title">Contact</p>
-          <a href="https://wa.me/919784102251" target="_blank" rel="noreferrer">
+          <a href="https://wa.me/919413259480" target="_blank" rel="noreferrer">
             WhatsApp
           </a>
-          <a href="tel:+919784102251">+91 9784102251</a>
+          <a href="tel:+919784102251">+91 9413259480</a>
           <p>Online worldwide</p>
           <p>Offline in Alwar, Rajasthan</p>
         </div>

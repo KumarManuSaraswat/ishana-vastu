@@ -31,7 +31,7 @@ function Hero() {
 
             <a
               className="secondary-btn"
-              href="https://wa.me/919784102251"
+              href="https://wa.me/919413259480"
               target="_blank"
               rel="noreferrer"
             >
