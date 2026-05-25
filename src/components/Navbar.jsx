@@ -4,8 +4,12 @@ function Navbar() {
   return (
     <header className="site-header">
       <div className="container navbar">
-        <NavLink to="/" className="brand">
-          Ishana Vastu
+        <NavLink to="/" className="brand" aria-label="Ishana Vastu home">
+          <img
+            src="/ishana-vastu.jpeg"
+            alt="Ishana Vastu logo"
+            className="brand-logo"
+          />
         </NavLink>
 
         <nav className="nav">
@@ -16,12 +20,13 @@ function Navbar() {
         </nav>
 
         <a
-         className="nav-cta"
-         href="https://calendar.app.google/AiYDcM6pdePHCUcq6"
-         target="_blank"
-         rel="noreferrer">
-        Book consultation
-      </a>
+          className="nav-cta"
+          href="https://calendar.app.google/AiYDcM6pdePHCUcq6"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Book consultation
+        </a>
       </div>
     </header>
   )

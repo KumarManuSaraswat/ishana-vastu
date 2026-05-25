@@ -41,7 +41,7 @@ function Contact() {
           <div className="contact-info-list">
             <div className="contact-info-card">
               <span className="info-label">WhatsApp</span>
-              <p>+91 9784102251</p>
+              <p>+91 9413259480</p>
             </div>
 
             <div className="contact-info-card">
@@ -75,17 +75,20 @@ function Contact() {
             <h2>Tell us how we can help</h2>
 
             <form
-              className="contact-form"
-              action="https://formsubmit.co/mrdisneyxd1983@gmail.com"
+              name="contact"
               method="POST"
+              action="/contact/?success=true"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              className="contact-form"
             >
-              <input type="hidden" name="_subject" value="New Ishana Vastu inquiry" />
-              <input type="hidden" name="_captcha" value="true" />
-              <input
-                type="hidden"
-                name="_next"
-                value="http://localhost:5173/contact"
-              />
+              <input type="hidden" name="form-name" value="contact" />
+
+              <p hidden>
+                <label>
+                  Don’t fill this out: <input name="bot-field" />
+                </label>
+              </p>
 
               <div className="form-grid">
                 <div className="form-field">
