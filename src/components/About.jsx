@@ -18,7 +18,7 @@ function About() {
             spiritual clarity.
           </h2>
           <p>
-            Ishana Vastu is a family-led consultation practice offering vastu
+            Ishana Vastu is a consultation practice offering vastu
             guidance, pranic healing, tarot insight, crystal support,
             counselling, aura work, and spiritual wellness services for people
             seeking more balance in life and space.
@@ -34,7 +34,6 @@ function About() {
           <div className="about-badge">Online worldwide</div>
           <div className="about-badge">Offline in Alwar</div>
           <div className="about-badge">Contact for pricing</div>
-          <div className="about-badge">Family-led practice</div>
         </div>
       </div>
     </motion.section>

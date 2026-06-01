@@ -27,7 +27,9 @@ function Team() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <div className="team-avatar">MS</div>
+            <div className="team-avatar">
+              <img src="/mata shree.jpeg" alt="Monica Saraswat" />
+            </div>
             <p className="team-role">Pranic Healing & Spiritual Guidance</p>
             <h3>Monica Saraswat</h3>
             <p>
@@ -44,8 +46,12 @@ function Team() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
           >
-            <div className="team-avatar">NS</div>
-            <p className="team-role">Pranic Healing, Divination & Crystal Work</p>
+            <div className="team-avatar">
+              <img src="/naman bhaiya  PM.jpeg" alt="Naman Saraswat" />
+            </div>
+            <p className="team-role">
+              Pranic Healing, Divination &amp; Crystal Work
+            </p>
             <h3>Naman Saraswat</h3>
             <p>
               Naman Saraswat has 6+ years of experience in pranic healing, aura
@@ -62,8 +68,10 @@ function Team() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           >
-            <div className="team-avatar">CG</div>
-            <p className="team-role">Vastu & Consultation</p>
+            <div className="team-avatar">
+              <img src="/chandarshekhar dada.jpeg" alt="Chandar S Gupta" />
+            </div>
+            <p className="team-role">Vastu &amp; Consultation</p>
             <h3>Chandar S Gupta</h3>
             <p>
               Chandar S Gupta is a vastu expert and consultant who also offers
