@@ -14,7 +14,7 @@ function Team() {
           <p className="section-kicker">Meet the team</p>
           <h2>The practitioners behind Ishana Vastu</h2>
           <p>
-            A family-led practice offering vastu guidance, healing support,
+            A practice offering vastu guidance, healing support,
             spiritual insight, and personal consultation with care and clarity.
           </p>
         </motion.div>
