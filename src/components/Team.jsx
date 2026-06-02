@@ -75,7 +75,7 @@ function Team() {
             <h3>Chandar S Gupta</h3>
             <p>
               Chandar S Gupta is a vastu expert and consultant who also offers
-              pendulum and kundli consultation, helping clients seek clarity,
+              pendulum,numerology,Switch words guidance, Pranic Healing and consultation for crystal, helping clients seek clarity,
               balance, and practical direction for their homes and spaces.
             </p>
           </motion.article>
