@@ -9,9 +9,12 @@ This project is a multi-page single-page application built with React Router and
 ## Features
 
 - Responsive homepage, about, services, FAQ, and contact pages.
+- Complete homepage with service highlights, the practice story, consultation steps, practitioner profiles, FAQs, and booking guidance.
+- Warm ivory, rich green, and golden design inspired by the Ishana Vastu logo, with accessible navigation and reduced-motion support.
 - Sticky navbar with logo branding and mobile hamburger menu.
 - Scroll-to-top behavior on route change for better page transitions in a React SPA.[3][4]
 - Netlify form handling for inquiries.
+- Service-specific inquiry links, a help-me-choose option, and form sending, error, and success feedback.
 - Google Calendar booking link integration.
 - WhatsApp contact shortcut.
 - Netlify-compatible SPA routing setup for React Router paths.[2][5]
@@ -140,11 +143,12 @@ This project includes a mobile navigation button and route-based scroll reset to
 - Logo asset is served from the `public` folder.
 - The site is optimized for both desktop and mobile layouts.
 - Form behavior and content are still being tested and may be refined further based on live user feedback.
+- Local previews do not accept form submissions. Inquiry delivery requires the deployed Netlify Forms configuration; the preview shows an explanatory message and WhatsApp alternative.
+- Generated brand imagery is stored in `public/images/` as optimized WebP assets. The generation prompts and provenance are recorded in `public/images/image-prompts.txt`.
 
 ## Future Improvements
 
-- Add testimonials.
+- Add real client testimonials when approved quotes are available.
 - Add a privacy policy page.
-- Improve form success feedback.
-- Fine-tune spacing and responsiveness based on real-device testing.
-- Add SEO meta tags and social sharing previews.
+- Verify inquiry delivery on the deployed Netlify site.
+- Add an absolute social-sharing image URL once the production domain is confirmed.

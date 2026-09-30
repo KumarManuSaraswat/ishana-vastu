@@ -1,0 +1,33 @@
+/* The original logo remains intact; the header frames its compass emblem. */
+.brand { gap: 13px; }
+.brand-logo-emblem { position: relative; display: block; flex: 0 0 61px; width: 61px; height: 61px; overflow: hidden; mix-blend-mode: darken; }
+.brand-logo-emblem img { position: absolute; width: 118px; height: 118px; max-width: none; left: -28px; top: -12px; }
+.brand-wordmark { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+.brand-wordmark > .brand-name { font-family: var(--heading); font-size: 25px; font-weight: 400; letter-spacing: .16em; margin: 0; color: var(--primary); }
+.brand-wordmark > .brand-vastu { font-family: var(--heading); font-size: 12px; font-weight: 400; letter-spacing: .4em; margin: 6px 0 0; color: var(--accent); }
+.brand-wordmark > .brand-tagline { font-size: 6px; font-weight: 600; letter-spacing: .1em; margin: 7px 0 0; color: var(--primary); }
+.brand-logo-full { width: 185px; height: 185px; object-fit: contain; mix-blend-mode: darken; }
+.footer-brand .brand-full { display: flex; width: fit-content; margin-top: -22px; margin-left: -18px; }
+.footer-brand > p { margin-top: 8px; }
+@media (max-width: 1150px) {
+  .brand-logo-emblem { flex-basis: 54px; width: 54px; height: 54px; }
+  .brand-logo-emblem img { width: 104px; height: 104px; left: -24px; top: -11px; }
+  .brand-wordmark > .brand-name { font-size: 23px; }
+  .brand-wordmark > .brand-vastu { font-size: 11px; margin-top: 5px; }
+  .brand-wordmark > .brand-tagline { font-size: 5.5px; }
+}
+@media (max-width: 640px) {
+  .brand { gap: 10px; }
+  .brand-logo-emblem { flex-basis: 48px; width: 48px; height: 48px; }
+  .brand-logo-emblem img { width: 94px; height: 94px; left: -22px; top: -10px; }
+  .brand-wordmark > .brand-name { font-size: 21px; }
+  .brand-wordmark > .brand-vastu { font-size: 10px; margin-top: 4px; }
+  .brand-wordmark > .brand-tagline { font-size: 5px; margin-top: 5px; }
+  .brand-logo-full { width: 175px; height: 175px; }
+  .footer-brand .brand-full { margin-top: -18px; margin-left: -16px; }
+}
+@media (max-width: 370px) {
+  .brand { gap: 7px; }
+  .brand-wordmark > .brand-name { font-size: 19px; }
+  .brand-wordmark > .brand-tagline { font-size: 4.5px; }
+}

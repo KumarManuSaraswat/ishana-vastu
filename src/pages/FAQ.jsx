@@ -1,116 +1,139 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+import { useId, useState } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
+import { Link } from 'react-router-dom'
 
 const faqData = [
   {
-    question: 'What services does Ishana Vastu offer?',
+    question: 'How do I choose the right consultation?',
     answer:
-      'Ishana Vastu offers vastu consultation, pranic healing, tarot guidance, pendulum guidance, aura reading, aura tracing, counselling, meditation support, crystal healing, kundli consultation, and crystal-related guidance through a calm and personal consultation approach.',
+      'Start with the question you would like to explore. Vastu consultation focuses on your living or working space; tarot and kundli consultations offer spiritual perspectives; counselling and meditation support reflection and grounding. If you are unsure, send a short inquiry about your needs so the team can explain the available options.',
   },
   {
-    question: 'Who are the practitioners behind Ishana Vastu?',
+    question: 'Can I connect with you online?',
     answer:
-      'Ishana Vastu is a family-led practice with Monica Saraswat, Naman Saraswat, and Chandar S Gupta. The team brings together experience in healing, divination, counselling, and vastu consultation.',
+      'Yes. Online consultations are available worldwide, and in-person sessions are available in Alwar, Rajasthan. Mention your preferred format when you inquire, and confirm the arrangements with the team before your appointment.',
   },
   {
-    question: 'Are consultations available online?',
+    question: 'What should I prepare for my first session?',
     answer:
-      'Yes. Online consultations are available for clients worldwide, making it possible to connect from any location.',
+      'Make a short list of your main questions and what you hope to understand. For vastu, mention the type of space and ask which floor plans or photographs will be useful. For kundli consultation, ask which birth details are needed. For an online session, choose a quiet place with a reliable connection. The team can guide you on any service-specific preparation.',
   },
   {
-    question: 'Do you offer offline sessions?',
+    question: 'How do I book, and what does it cost?',
     answer:
-      'Yes. Offline sessions are available in Alwar, Rajasthan.',
+      'Use “Book a consultation” to open the Google Calendar booking page, or contact the team on WhatsApp for help choosing a service. Fees are shared on inquiry and depend on the service and consultation type. Ask about the fee and session arrangements before confirming your appointment.',
   },
   {
-    question: 'How do I book a consultation?',
+    question: 'What can I expect from spiritual guidance?',
     answer:
-      'You can book a consultation through the booking button on the website, which opens the Google Calendar booking page. You may also reach out on WhatsApp if you would like help before booking.',
+      'The intention is to offer a thoughtful space for reflection, spiritual exploration, and personal clarity. Tarot, kundli, and energy-based practices are interpretive approaches; they do not guarantee outcomes or make decisions for you. You are encouraged to consider the guidance alongside your own circumstances and judgement.',
   },
   {
-    question: 'Is tarot guidance available?',
+    question: 'Do healing services replace medical or mental health care?',
     answer:
-      'Yes. Tarot guidance is offered as a reflective and supportive practice for clarity, self-awareness, and decision-making.',
+      'Pranic healing, crystal-based practices, and other spiritual wellness services are complementary practices. They do not replace diagnosis, treatment, or support from a qualified medical or mental health professional. Continue any prescribed care and discuss health concerns with your clinician.',
   },
   {
-    question: 'Are crystals and bracelets available for purchase online?',
+    question: 'Who will I be speaking with?',
     answer:
-      'Crystals and bracelets are currently showcased on the website, and purchases are handled through direct inquiry rather than instant online checkout.',
+      'Our professional team includes Monica Saraswat, Naman Saraswat, and Chandar S Gupta. Their work includes healing, divination, counselling, and vastu consultation. When you inquire, the team can help you connect with the practitioner for your chosen service.',
   },
   {
-    question: 'What is the pricing?',
+    question: 'How can I inquire about crystals and bracelets?',
     answer:
-      'Pricing is shared on inquiry depending on the service, consultation type, and support required.',
+      'Contact the team through the inquiry form or WhatsApp to ask about available crystals and bracelets. Purchases are arranged directly. Ask about current availability, pricing, the material, and delivery arrangements before placing an order.',
   },
   {
-    question: 'How soon will I receive a response to an inquiry?',
+    question: 'I have a question before booking. How can I reach you?',
     answer:
-      'The team aims to respond as soon as possible after receiving your inquiry through the contact form or WhatsApp.',
+      'Send a message using the contact form or WhatsApp at +91 9413259480. Include the service you are interested in, a brief description of your question, and whether you prefer an online or in-person consultation. The team will respond as soon as possible.',
   },
 ]
 
-function FAQItem({ item, isOpen, onClick }) {
-  return (
-    <div className={`faq-item ${isOpen ? 'open' : ''}`}>
-      <button className="faq-question" onClick={onClick} type="button">
-        <span>{item.question}</span>
-        <span className="faq-icon">{isOpen ? '−' : '+'}</span>
-      </button>
+function FAQAccordion({ items }) {
+  const [openIndex, setOpenIndex] = useState(0)
+  const accordionId = useId()
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            className="faq-answer-wrap"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.28, ease: 'easeOut' }}
-          >
-            <div className="faq-answer">
-              <p>{item.answer}</p>
+  return (
+    <div className="faq-list">
+      {items.map((item, index) => {
+        const isOpen = openIndex === index
+        const questionId = `${accordionId}-question-${index}`
+        const answerId = `${accordionId}-answer-${index}`
+
+        return (
+          <div className={`faq-item ${isOpen ? 'open' : ''}`} key={item.question}>
+            <button
+              className="faq-question"
+              id={questionId}
+              type="button"
+              aria-expanded={isOpen}
+              aria-controls={answerId}
+              onClick={() => setOpenIndex(isOpen ? -1 : index)}
+            >
+              <span>{item.question}</span>
+              <span className="faq-icon" aria-hidden="true">{isOpen ? '−' : '+'}</span>
+            </button>
+            <div
+              className="faq-answer-wrap"
+              id={answerId}
+              role="region"
+              aria-labelledby={questionId}
+              hidden={!isOpen}
+            >
+              <div className="faq-answer"><p>{item.answer}</p></div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        )
+      })}
     </div>
   )
 }
 
+export function FAQPreview() {
+  return (
+    <section className="faq-preview" aria-labelledby="faq-preview-title">
+      <div className="container faq-layout">
+        <div className="faq-intro">
+          <p className="section-kicker">A little clarity</p>
+          <h2 id="faq-preview-title">Feel at ease before you begin.</h2>
+          <p>
+            Choosing a consultation should feel comfortable. Here are a few
+            things you may want to know before we connect.
+          </p>
+          <Link className="text-link" to="/faq">
+            Explore all questions <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <FAQAccordion items={faqData.slice(0, 3)} />
+      </div>
+    </section>
+  )
+}
+
 function FAQ() {
-  const [openIndex, setOpenIndex] = useState(0)
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <section className="faq-page">
       <div className="container faq-layout">
         <motion.div
           className="faq-intro"
-          initial={{ opacity: 0, y: 24 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: 'easeOut' }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.55, ease: 'easeOut' }}
         >
-          <p className="section-kicker">FAQ</p>
-          <h1>Questions people often ask before booking</h1>
+          <p className="section-kicker">Your questions, answered</p>
+          <h1>A clearer beginning.</h1>
           <p>
-            Clear answers help visitors feel informed, comfortable, and ready to
-            take the next step with Ishana Vastu.
+            From choosing a service to preparing for your first conversation,
+            find the details that help you take your next step with confidence.
           </p>
+          <Link className="primary-btn" to="/contact">
+            Ask us a question <span aria-hidden="true">↗</span>
+          </Link>
         </motion.div>
-
-        <motion.div
-          className="faq-list"
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-        >
-          {faqData.map((item, index) => (
-            <FAQItem
-              key={item.question}
-              item={item}
-              isOpen={openIndex === index}
-              onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
-            />
-          ))}
-        </motion.div>
+        <FAQAccordion items={faqData} />
       </div>
     </section>
   )

@@ -1,84 +1,79 @@
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
+
+const practitioners = [
+  {
+    name: 'Monica Saraswat',
+    image: '/mata shree.jpeg',
+    role: 'Healing & spiritual guidance',
+    experience: '16+ years of experience',
+    description:
+      'Monica brings a depth of experience in pranic healing, counselling and meditation, alongside tarot, aura reading, Lama Fera and crystal practices.',
+  },
+  {
+    name: 'Naman Saraswat',
+    image: '/naman bhaiya  PM.jpeg',
+    role: 'Healing & intuitive insight',
+    experience: '6+ years of experience',
+    description:
+      'Naman works with pranic and crystal healing, aura reading and divination through tarot, pendulum and palmistry, offering a personal space for reflection.',
+  },
+  {
+    name: 'Chandar S Gupta',
+    image: '/chandarshekhar dada.jpeg',
+    role: 'Vastu & personal consultation',
+    experience: 'Vastu consultant',
+    description:
+      'Chandar offers vastu guidance for homes and spaces, with consultations in numerology, pendulum, switch words, pranic healing and crystals.',
+  },
+]
 
 function Team() {
+  const reduceMotion = useReducedMotion()
+
   return (
-    <section className="team-section">
+    <section className="team-section" aria-labelledby="team-title">
       <div className="container">
         <motion.div
           className="section-heading"
-          initial={{ opacity: 0, y: 28 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.55, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <p className="section-kicker">Meet the team</p>
-          <h2>The practitioners behind Ishana Vastu</h2>
+          <p className="section-kicker">People, before practices</p>
+          <h2 id="team-title">Meet your <em>guides.</em></h2>
           <p>
-            A practice offering vastu guidance, healing support,
-            spiritual insight, and personal consultation with care and clarity.
+            Three individual perspectives, one shared intention: to listen
+            closely and help you find a way forward that feels considered.
           </p>
         </motion.div>
 
         <div className="team-grid">
-          <motion.article
-            className="team-card"
-            initial={{ opacity: 0, y: 34 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
-            <div className="team-avatar">
-              <img src="/mata shree.jpeg" alt="Monica Saraswat" />
-            </div>
-            <p className="team-role">Pranic Healing & Spiritual Guidance</p>
-            <h3>Monica Saraswat</h3>
-            <p>
-              Monica Saraswat brings 16+ years of experience in pranic healing,
-              counselling, Lama Fera, aura reading, crystal therapies,
-              meditation, crystal healing, pendulum, and tarot.
-            </p>
-          </motion.article>
-
-          <motion.article
-            className="team-card"
-            initial={{ opacity: 0, y: 34 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-          >
-            <div className="team-avatar">
-              <img src="/naman bhaiya  PM.jpeg" alt="Naman Saraswat" />
-            </div>
-            <p className="team-role">
-              Pranic Healing, Divination &amp; Crystal Work
-            </p>
-            <h3>Naman Saraswat</h3>
-            <p>
-              Naman Saraswat has 6+ years of experience in pranic healing, aura
-              reading, aura tracing, divination through pendulum, tarot and
-              palmistry, advanced healing, crystal healing, psychotherapy, and
-              energizing or programming crystals.
-            </p>
-          </motion.article>
-
-          <motion.article
-            className="team-card"
-            initial={{ opacity: 0, y: 34 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-          >
-            <div className="team-avatar">
-              <img src="/chandarshekhar dada.jpeg" alt="Chandar S Gupta" />
-            </div>
-            <p className="team-role">Vastu &amp; Consultation</p>
-            <h3>Chandar S Gupta</h3>
-            <p>
-              Chandar S Gupta is a vastu expert and consultant who also offers
-              pendulum,numerology,Switch words guidance, Pranic Healing and consultation for crystal, helping clients seek clarity,
-              balance, and practical direction for their homes and spaces.
-            </p>
-          </motion.article>
+          {practitioners.map((practitioner, index) => (
+            <motion.article
+              className="team-card"
+              key={practitioner.name}
+              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' }}
+            >
+              <div className="team-photo">
+                <img
+                  src={practitioner.image}
+                  alt={practitioner.name}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="team-experience">{practitioner.experience}</span>
+              </div>
+              <div className="team-card-copy">
+                <p className="team-role">{practitioner.role}</p>
+                <h3>{practitioner.name}</h3>
+                <p>{practitioner.description}</p>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
